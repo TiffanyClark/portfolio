@@ -1,0 +1,240 @@
+:root {
+  --primary: #474dff;
+  --dk-grey: #333;
+  --max-width: 960px;
+  --spacing: 4rem;
+  --img-width: 350px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+h1 {
+  margin-bottom: 2rem;
+  font-size: clamp(3rem, 5vw, 200rem);
+  font-weight: bold;
+  line-height: 1.4em;
+  color: var(--dk-grey);
+}
+h2 {
+  margin-bottom: var(--spacing);
+  text-align: center;
+  font-size: 3vw;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+p {
+  margin-bottom: 1em;
+  line-height: 1.4em;
+}
+
+section {
+  padding: var(--spacing);
+}
+
+blockquote {
+  margin-top: var(--spacing);
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+}
+
+cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-style: normal;
+}
+
+article {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: var(--spacing);
+}
+
+footer {
+  padding: var(--spacing);
+  text-align: center;
+  background-color: var(--dk-grey);
+  color: white;
+}
+
+.button {
+  display: inline-block;
+  width: max-content;
+  margin-right: 1rem;
+  padding: 1rem;
+  border: 2px solid var(--button-color);
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--button-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  color: var(--button-hover-color);
+  background-color: var(--button-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.neutral-theme {
+  background-color: white;
+  --button-color: var(--primary);
+  --button-hover-color: white;
+}
+
+.primary-theme {
+  color: white;
+  background-color: var(--primary);
+  --button-color: white;
+  --button-hover-color: var(--primary);
+}
+.header-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-highlight {
+  color: var(--primary);
+}
+.header-link::after {
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 1rem;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 0.75rem solid var(--primary);
+}
+
+.header-link:hover::after {
+  border-top-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.article-img {
+  margin-bottom: 2rem;
+  max-width: 350px;
+}
+
+.contact {
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing);
+}
+
+.social-item {
+  margin: 0 2rem;
+}
+
+.social-link {
+  display: block;
+  width: 60px;
+  height: 60px;
+  font-size: 0px;
+  background: no-repeat;
+  background-size: 60px;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.linkedin {
+  background-image: url(images/linkedin.svg);
+}
+
+.github {
+  background-image: url(images/github.svg);
+}
+
+.about {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.about::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -100px;
+  width: 0;
+  height: 0;
+  border-top: 100px solid var(--primary);
+  border-right: 100vw solid transparent;
+}
+
+.about-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.about-img {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto var(--spacing);
+  filter: grayscale(100%);
+  /* doesn't want img to touch on the bottom, want auto for mobile */
+}
+
+.about-img:hover {
+  filter: grayscale(0);
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -100px;
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid var(--primary);
+  border-left: 100vw solid transparent;
+}
+
+@media (min-width: 800px) {
+  .about-container {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .about-text {
+    margin-left: var(--spacing);
+  }
+
+  article {
+    flex-direction: row;
+    max-width: 960px;
+    margin: 0 auto var(--spacing);
+  }
+
+  .article-img {
+    margin-left: 2rem;
+    max-width: 350px;
+    object-fit: cover;
+  }
+}
